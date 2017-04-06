@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$database_info['name']}</title>
+<style type="text/css">
+	#container {margin:0 auto;width:80%;/*A4,窄边距 width:184.6mm;*/text-align: left;}
+	#index li {line-height: 25px;}
+	#index li a,#index li a:visited{text-decoration:none;}
+	#desc {text-align: left;padding-bottom: 10px;}
+	table {text-align: left;border-collapse:collapse;margin:0 auto;width: 100%;}
+	table th {background-color: #FAEBD7;}
+	table tr{height: 30px; line-height: 30px;}
+	table td,table th {border:#999999 solid 1px;padding:5px;}
+</style>
+</head>
+<body>
+	<div id="container">
+	<h3>索引</h3>
+	<ol id="index">
+		{loop $tables_info $val}
+		<li><a href="#{$val['TABLE_NAME']}">{$val['TABLE_NAME']}{if $val['TABLE_COMMENT']!=''}&nbsp;&nbsp;({$val['TABLE_COMMENT']}){/if}</a></li>
+		{/loop}
+	</ol>
